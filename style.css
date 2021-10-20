@@ -1,0 +1,15 @@
+.wrapper
+{
+    background:rgb(196, 194, 194);
+}
+
+h1
+{
+    text-align: center;
+    
+}
+
+li
+{
+    display: inline-block;
+}
