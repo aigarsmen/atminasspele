@@ -69,10 +69,37 @@
 
     </div><!--beidzas wrapper-->
 <script>
+
+    let laukumuSaturs = ['😃','😎','P','😃','P','😎']
+    let atvertieLaukumi = []
+    let pedejieDivi = []
+
     function veiktGajienu(laukums)
     {
-        console.log(laukums)
-        document.querySelector('#'+laukums+' div').style.display="block"
+        let atvertJaunsLaukums = false
+        if( atvertieLaukumi.indexOf(laukums) == -1)//meklējam ierasktu
+        {
+            atvertJaunsLaukums = true
+        }
+        else
+        {
+            atvertJaunsLaukums = false
+        }
+        console.log(atvertJaunsLaukums)
+
+        if(atvertJaunsLaukums)
+        {
+            document.querySelector('#'+laukums+' div').style.display="block"//parādās div ar sejiņām
+            pedejieDivi.push(laukums)
+        }
+        
+    
+        atvertieLaukumi.push(laukums)//ievadam atvērtos laukumus
+        
+        if(laukumuSaturs.length == atvertieLaukumi.length)
+        {
+            alert('Apsveicam')
+        }
     }
 </script>
 </body>
