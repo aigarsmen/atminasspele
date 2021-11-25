@@ -51,9 +51,10 @@
             <br /> 
             Reģions: 
             <select id="regions">
+                <option value= > </option>
                 <option value=Vidzeme>Vidzeme</option>
                 <option value=Latgale>Latgale</option>
-                <option value=Kurzem>Kurzeme</option>
+                <option value=Kurzeme>Kurzeme</option>
                 <option value=VSēlija>Sēlija</option>
             </select>
 
@@ -69,7 +70,16 @@
         let vards = document.querySelector('#vards').value//izsaucu kuram ir id vards
         let vecums = document.querySelector('#vecums').value
         let regions = document.querySelector('#regions').value
-        console.log(vards)//pārbaudam vai viss strādā
+        console.log(vecums)//pārbaudam vai viss strādā
+
+        if(vards == '')
+        {
+            alert('Ievdi vārdu!')
+        }
+        else
+        {
+            window.location='spele.html#'+vards+','+vecums+','+regions //aizūta uz spēles logu + pieliek vārdu
+        }
     }//beidzas saktSpeli()
    
    
