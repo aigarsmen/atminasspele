@@ -53,13 +53,13 @@
                     <div>😎</div>
                 </div>
                 <div class="block" id="L2" onclick="veiktGajienu('L2')">
-                    <div>P</div>
+                    <div>🥳</div>
                 </div>
                 <div class="block" id="L3" onclick="veiktGajienu('L3')">
-                   <div>😃</div> 
+                    <div>😃</div>
                 </div>
                 <div class="block" id="L4" onclick="veiktGajienu('L4')">
-                    <div>P</div>
+                    <div>🥳</div>
                 </div>
                 <div class="block" id="L5" onclick="veiktGajienu('L5')">
                     <div>😎</div>
@@ -68,39 +68,67 @@
         </div>
 
     </div><!--beidzas wrapper-->
+
 <script>
 
-    let laukumuSaturs = ['😃','😎','P','😃','P','😎']
+    let laukumuSaturs = ['😃','😎','🥳','😃','🥳','😎']
     let atvertieLaukumi = []
     let pedejieDivi = []
 
     function veiktGajienu(laukums)
     {
-        let atvertJaunsLaukums = false
-        if( atvertieLaukumi.indexOf(laukums) == -1)//meklējam ierasktu
+        let atvertsJaunsLaukums = false
+        if( atvertieLaukumi.indexOf(laukums) == -1 )
         {
-            atvertJaunsLaukums = true
+            atvertsJaunsLaukums = true
         }
         else
         {
-            atvertJaunsLaukums = false
+            atvertsJaunsLaukums = false
         }
-        console.log(atvertJaunsLaukums)
-
-        if(atvertJaunsLaukums)
+        
+        
+        if(atvertsJaunsLaukums)
         {
-            document.querySelector('#'+laukums+' div').style.display="block"//parādās div ar sejiņām
+            document.querySelector('#'+laukums+' div').style.display="block"
+            document.querySelector('#'+laukums+' div').style.opacity=1
             pedejieDivi.push(laukums)
         }
+
+        if( pedejieDivi.length == 2 )
+        {
+            let atverts1 = pedejieDivi[0].replace('L','')
+            let atverts2 = pedejieDivi[1].replace('L','')
+
+            atverts1 = parseInt(atverts1,10)
+            atverts2 = parseInt(atverts2,10)
+
+            if( laukumuSaturs[atverts1] == laukumuSaturs[atverts2] )
+            {
+                console.log('atvērti vienādi')
+                atvertieLaukumi.push( pedejieDivi[0],pedejieDivi[1] )
+            }
+            else
+            {
+                console.log('nav atvērti vienādi')
+                document.querySelector('#'+pedejieDivi[0]+' div').style.opacity=0.1
+                document.querySelector('#'+pedejieDivi[1]+' div').style.opacity=0.1
+            }
+
+
+            pedejieDivi = []
+        }
+
         
-    
-        atvertieLaukumi.push(laukums)//ievadam atvērtos laukumus
-        
-        if(laukumuSaturs.length == atvertieLaukumi.length)
+
+        if( laukumuSaturs.length == atvertieLaukumi.length )
         {
             alert('Apsveicam')
         }
+    
     }
+
 </script>
+
 </body>
 </html>
