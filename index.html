@@ -45,11 +45,36 @@
         <div class="content">
             <h3 class="virsraksts">Noteikumu teksts</h3>
 
-            
+            Vārds: <input id="vards" />
+            <br />
+            Vecums: <input id="vecums" />
+            <br /> 
+            Reģions: 
+            <select id="regions">
+                <option value=Vidzeme>Vidzeme</option>
+                <option value=Latgale>Latgale</option>
+                <option value=Kurzem>Kurzeme</option>
+                <option value=VSēlija>Sēlija</option>
+            </select>
+
+            <button onclick="saktSpeli()">Sākt</button>
+
+
         </div>
 
     </div><!--beidzas wrapper-->
 <script>
+    function saktSpeli()
+    {
+        let vards = document.querySelector('#vards').value//izsaucu kuram ir id vards
+        let vecums = document.querySelector('#vecums').value
+        let regions = document.querySelector('#regions').value
+        console.log(vards)//pārbaudam vai viss strādā
+    }//beidzas saktSpeli()
+   
+   
+   
+   /*
     let vards
     const valts = "Latvija"
     vards = "Laura"
@@ -83,7 +108,7 @@ console.log('beigas ir')
 
 //objekta izsaukšana un mainīšana
 document.querySelector('.virsraksts').innerHTML = 'Vārds:'+vards
-
+*/
 </script>
 
 </body>
